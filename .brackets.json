@@ -1,0 +1,15 @@
+{
+    "jscodehints.detectedExclusions": [
+        "D:/movies/js/bower_components/lodash/vendor/underscore/test/functions.js",
+        "underscore.js",
+        "D:/movies/js/bower_components/lodash/vendor/underscore/underscore.js",
+        "D:/movies/js/bower_components/uuid-js/test/uuid.js",
+        "D:/movies/js/bower_components/uuid-js/lib/uuid.js",
+        "D:/movies/js/bower_components/lodash/lodash.js",
+        "D:/movies/js/bower_components/lodash/vendor/underscore/underscore-min.js",
+        "D:/movies/js/bower_components/lodash/vendor/underscore/test/utility.js",
+        "D:/movies/js/bower_components/lodash/vendor/underscore/test/objects.js",
+        "D:/movies/js/bower_components/lodash/vendor/underscore/test/cross-document.js",
+        "D:/movies/js/bower_components/lodash/vendor/underscore/test/collections.js"
+    ]
+}

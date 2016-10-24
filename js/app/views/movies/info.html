@@ -1,0 +1,48 @@
+<h3>Rate movie</h3>
+<span uib-rating ng-model="rate" max="max" read-only="isReadonly" on-hover="hoveringOver(value)" on-leave="overStar = null" titles="['one','two','three']" aria-labelledby="default-rating"></span>
+<span class="label" ng-class="{'label-warning': percent<30, 'label-info': percent>=30 && percent<70, 'label-success': percent>=70}" ng-show="overStar && !isReadonly">{{percent}}%</span>
+
+
+<div>
+    <div class="form-group">
+        <label for="name">Name:</label>
+        <label>{{movie.name}}</label>
+    </div>
+    <div class="form-group">
+        <label for="year">Release Year:</label>
+        <label>{{movie.year}}</label>
+    </div>
+    <div class="form-group">
+        <label for="income">Gross Income:</label>
+        <label>{{movie.income}}</label>
+    </div>
+    <div class="form-group">
+        <label for="actor">Actors</label>
+        <table class="table table-hover">
+            <tr class="danger">
+                <th>Firs name</th>
+                <th>Last name</th>
+                <th>Actions</th>
+            </tr>
+            <tr class="info" ng-repeat="item in actors | filter:searchText">
+                <td>{{item.name}}</td>
+                <td>{{item.last}}</td>
+                <td>
+                    <button type="button" class="btn btn-info" ui-sref="app.actor.info({actorId:item.id})">Info</button>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="form-group">
+        <label for="director">Director Name:</label>
+        <label>{{movie.director}}</label>
+    </div>
+    <div class="form-group">
+        <label for="raiting">Raiting:</label>
+        <label>{{movie.raiting}}</label>
+    </div>
+    <div class="form-group">
+        <label for="genre">Genre:</label>
+        <label>{{movie.genre}}</label>
+    </div>
+</div>

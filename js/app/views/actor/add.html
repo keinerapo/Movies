@@ -1,0 +1,28 @@
+<form>
+    <div class="form-group">
+      <label for="name">First name:</label>
+      <input type="text" class="form-control" id="name" ng-model="actor.name">
+    </div>
+    <div class="form-group">
+      <label for="year">Last Name:</label>
+      <input type="text" class="form-control" id="last" ng-model="actor.last">
+    </div>
+    <div class="form-group">
+      <label for="Gender">Gender:</label>
+      <select class="form-control" id="gender" ng-model="actor.gender">
+        <option>Male</option>
+        <option>Female</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="date">Birth date:</label>
+      <input type="date" class="form-control" id="date" ng-model="actor.date">
+    </div>
+    <div class="form-group">
+        <label for="movies">Movies</label>
+        <div class="checkbox" ng-repeat="item in MoviesByActor">
+          <label for="movies"><input type="checkbox" id="movies" ng-true-value="'true'" ng-false-value="false" ng-model="item.selected">{{item.name}} - {{item.year}}</label>
+        </div>
+    </div>
+    <button type="submit" class="btn btn-info" ng-click="saveActor()">Submit</button>
+</form>

@@ -1,0 +1,1 @@
+var app = angular.module("moviesApp",["ui.router","ui.bootstrap","appRoutes","appService","appController","angular-uuid","btorfs.multiselect"]);

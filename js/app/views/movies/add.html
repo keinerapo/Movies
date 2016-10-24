@@ -1,0 +1,41 @@
+<form>
+    <div class="col-md-9 centro">
+         <div class="form-group">
+        <label for="name">Name:</label>
+        <input type="text" class="form-control" id="name" ng-model="movie.name">
+    </div>
+    <div class="form-group">
+        <label for="year">Release Year:</label>
+        <input type="number" class="form-control" id="year" ng-model="movie.year">
+    </div>
+    <div class="form-group">
+        <label for="income">Gross Income:</label>
+        <input type="number" class="form-control" id="income" min="0" ng-model="movie.income">
+    </div>
+    <div class="form-group">
+        <label for="actor">Actors</label>
+        <div class="checkbox" ng-repeat="item in ActorsByMovie">
+            <label for="actors">
+                <input type="checkbox" id="actors" ng-true-value="'true'" ng-false-value="false" ng-model="item.selected">{{item.name}} {{item.last}}</label>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="director">Director Name:</label>
+        <input type="text" class="form-control" id="director" ng-model="movie.director">
+    </div>
+    <div class="form-group">
+        <label for="genre">Genre:</label>
+        <select class="form-control" id="genre" ng-model="movie.genre">
+            <option>Action</option>
+            <option>Adventure</option>
+            <option>Comedy</option>
+            <option>Drama</option>
+            <option>Fantasy</option>
+            <option>Romance</option>
+            <option>Science fiction</option>
+        </select>
+    </div>
+    <button type="submit" class="btn btn-info" ng-click="saveMovie()">Submit</button>
+    </div>
+   
+</form>

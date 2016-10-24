@@ -1,0 +1,41 @@
+<div>
+    <div class="form-group">
+        <label for="name">First name:</label>
+        <label>{{actor.name}}</label>
+    </div>
+    <div class="form-group">
+        <label for="year">Last Name:</label>
+        <label>{{actor.last}}</label>
+    </div>
+    <div class="form-group">
+        <label for="Gender">Gender:</label>
+        <label>{{actor.gender}}</label>
+    </div>
+    <div class="form-group">
+        <label for="date">Birth date:</label>
+        <label>{{actor.date | date:'dd/MM/yyyy'}}</label>
+    </div>
+    <div class="form-group">
+        <label for="movies">Movies:</label>
+        <div class="checkbox">
+            <table class="table table-hover">
+                <tr class="danger">
+                    <th>Name</th>
+                    <th>Release Year</th>
+                    <th>Raiting</th>
+                    <th>Genre</th>
+                    <th>Actions</th>
+                </tr>
+                <tr class="info" ng-repeat="item in movies | filter:searchText">
+                    <td>{{item.name}}</td>
+                    <td>{{item.year}}</td>
+                    <td>{{item.rate}}</td>
+                    <td>{{item.genre}}</td>
+                    <td>
+                        <button type="button" class="btn btn-info" ui-sref="app.movies.info({movieId:item.id})">Info</button>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>

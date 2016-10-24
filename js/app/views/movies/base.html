@@ -1,0 +1,88 @@
+
+
+<div class="col-md-12" ui-view>
+    <div class="col-md-12">
+
+        <div class="col-md-1 pull-right">
+            
+             <button class="btn btn-success pull-right"  ng-click="open('lg')">Add Movie</button>
+        </div>
+        <div class="col-md-4">
+            <input type="search" class="form-control" placeholder="Search" ng-model="searchText">
+        </div>
+        <div class="col-md-12 table-responsive responsive to-table">
+            <table class="table table-hover">
+                <tr class="danger">
+                    <th>Name</th>
+                    <th>Release Year</th>
+                    <th>Gross income</th>
+                    <th>Director name</th>
+                    <th>Raiting</th>
+                    <th>Genre</th>
+                    <th>Actions</th>
+                </tr>
+                <tr class="info" ng-repeat="movie in movies | filter:searchText">
+                    <td>{{movie.name}}</td>
+                    <td>{{movie.year}}</td>
+                    <td>{{movie.income}}</td>
+                    <td>{{movie.director}}</td>
+                    <td>{{movie.rate}}</td>
+                    <td>{{movie.genre}}</td>
+                    <td>
+                        <button type="button" class="btn btn-success" ng-click="delete(movie.id)">Delete</button>
+                        <button type="button" class="btn btn-danger" ui-sref="app.movies.update({movieId:movie.id})">Edit</button>
+                        <button type="button" class="btn btn-info" ui-sref="app.movies.info({movieId:movie.id})">Info</button>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+
+ <script type="text/ng-template" id="add-alumno.html" >
+        <div class="modal-header">
+
+            <h3 class="modal-title">Add Movie</h3>
+        </div>
+           <div class="modal-body">
+               <div class="form-group">
+        <label for="name">Name:</label>
+        <input type="text" class="form-control" id="name" ng-model="movie.name">
+    </div>
+    <div class="form-group">
+        <label for="year">Release Year:</label>
+        <input type="number" class="form-control" id="year" ng-model="movie.year">
+    </div>
+    <div class="form-group">
+        <label for="income">Gross Income:</label>
+        <input type="number" class="form-control" id="income" min="0" ng-model="movie.income">
+    </div>
+    <div class="form-group">
+        <label for="actor">Actors</label>
+        <div class="checkbox" ng-repeat="item in ActorsByMovie">
+            <label for="actors">
+                <input type="checkbox" id="actors" ng-true-value="'true'" ng-false-value="false" ng-model="item.selected">{{item.name}} {{item.last}}</label>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="director">Director Name:</label>
+        <input type="text" class="form-control" id="director" ng-model="movie.director">
+    </div>
+    <div class="form-group">
+        <label for="genre">Genre:</label>
+        <select class="form-control" id="genre" ng-model="movie.genre">
+            <option>Action</option>
+            <option>Adventure</option>
+            <option>Comedy</option>
+            <option>Drama</option>
+            <option>Fantasy</option>
+            <option>Romance</option>
+            <option>Science fiction</option>
+        </select>
+    </div>
+      </div>
+        <div class="modal-footer">
+           <button type="submit" class="btn btn-info" ng-click="saveMovie()">Submit</button>
+            <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+        </div>
+    </script>
