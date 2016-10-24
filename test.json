@@ -1,24 +1,9 @@
 [{
-    "name": "keiner",
-    "last": "pajaro",
-    "gender": "Male",
-    "date": "1111-01-22T06:00:00.000Z",
-    "id": "5c4e24ae-b9a6-450b-9501-535d7c15ae2f",
-    "movies": ["51a0e770-4294-4d6b-8e6a-e35960a480c7"],
-    "$$hashKey": "object:84"
-}, {
-    "name": "nando",
-    "last": "ariza",
-    "gender": "Male",
-    "date": "2222-02-22T06:00:00.000Z",
-    "id": "966a0efd-a8ee-45c7-92f9-df58247ab092",
-    "movies": ["bc8e30e3-f9de-496a-8ee5-0a6c4c863d11", "51a0e770-4294-4d6b-8e6a-e35960a480c7"],
-    "$$hashKey": "object:106"
-}, {
-    "name": "daniela",
-    "last": "garcia",
-    "gender": "Female",
-    "date": "1222-02-23T06:00:00.000Z",
-    "id": "ff9f8069-bdb3-4233-91c0-9fb0858e6768",
-    "movies": ["1b3fd113-9093-43c2-bf1c-444ab900ddc5", "bc8e30e3-f9de-496a-8ee5-0a6c4c863d11", "51a0e770-4294-4d6b-8e6a-e35960a480c7"]
+    "name": "transformers",
+    "year": 2012,
+    "income": 120000000,
+    "director": "william",
+    "genre": "Fantasy",
+    "id": "653f7bfe-74c0-4e17-9a13-521526b86f63",
+    "actors": ["4c957691-320a-437e-8414-09a8fa198e83"]
 }]

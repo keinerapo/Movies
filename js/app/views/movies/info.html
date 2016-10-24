@@ -1,5 +1,5 @@
 <h3>Rate movie</h3>
-<span uib-rating ng-model="rate" max="max" read-only="isReadonly" on-hover="hoveringOver(value)" on-leave="overStar = null" titles="['one','two','three']" aria-labelledby="default-rating"></span>
+<span uib-rating ng-model="rate" max="max" read-only="isReadonly" on-hover="hoveringOver(value)" on-leave="overStar = null" titles="['one','two','three']" aria-labelledby="default-rating" ng-click="calcRate(value)"></span>
 <span class="label" ng-class="{'label-warning': percent<30, 'label-info': percent>=30 && percent<70, 'label-success': percent>=70}" ng-show="overStar && !isReadonly">{{percent}}%</span>
 
 
@@ -39,7 +39,7 @@
     </div>
     <div class="form-group">
         <label for="raiting">Raiting:</label>
-        <label>{{movie.raiting}}</label>
+        <label>{{movie.rate}}</label>
     </div>
     <div class="form-group">
         <label for="genre">Genre:</label>

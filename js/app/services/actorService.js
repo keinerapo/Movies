@@ -54,6 +54,15 @@ servicesModule.factory('actorService', ['$http', function ($http) {
                 return m.id === id;
             });
             return movie[0];
+        },
+        getNoMovies: function (movies) {
+            var allMovies = JSON.parse(localStorage.getItem('movies'));
+            for (item in movies) {
+                _.remove(allMovies, function (m) {
+                    return m.id === movies[item].id;
+                });
+            }
+            return allMovies;
         }
     }
 }]);

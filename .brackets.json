@@ -10,6 +10,7 @@
         "D:/movies/js/bower_components/lodash/vendor/underscore/test/utility.js",
         "D:/movies/js/bower_components/lodash/vendor/underscore/test/objects.js",
         "D:/movies/js/bower_components/lodash/vendor/underscore/test/cross-document.js",
-        "D:/movies/js/bower_components/lodash/vendor/underscore/test/collections.js"
+        "D:/movies/js/bower_components/lodash/vendor/underscore/test/collections.js",
+        "D:/movies/js/bower_components/lodash/vendor/underscore/test/chaining.js"
     ]
 }

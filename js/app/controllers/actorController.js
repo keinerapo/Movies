@@ -9,20 +9,20 @@ moduleController.controller("actorsController", ["$scope", "$rootScope", "actorS
         }
         actorService.deleteActor($rootScope.actors, id);
     }
-    
-    $scope.open = function(size){
-         var modalInstance = $uibModal.open({
-      animation: $scope.animationsEnabled,
-      templateUrl: 'add-alumno.html',
-      controller: 'ModalAController',
-      size: size
-    });
-        
+
+    $scope.open = function (size) {
+        var modalInstance = $uibModal.open({
+            animation: $scope.animationsEnabled,
+            templateUrl: 'add-actor.html',
+            controller: 'addActorsController',
+            size: size
+        });
+
     };
-    
+
 }]);
 
-moduleController.controller("addActorsController", ["$scope", "$rootScope", "$stateParams", "actorService", "uuid","$location", function ($scope, $rootScope, $stateParams, actorService, uuid,$location) {
+moduleController.controller("addActorsController", ["$scope", "$rootScope", "$stateParams", "actorService", "uuid", "$location", "$uibModal", "$uibModalInstance", function ($scope, $rootScope, $stateParams, actorService, uuid, $location, $uibModal, $uibModalInstance) {
     if (localStorage.getItem('actors') == undefined) {
         $rootScope.actors = [];
     } else {
@@ -33,15 +33,19 @@ moduleController.controller("addActorsController", ["$scope", "$rootScope", "$st
         $scope.actor.id = uuid.v4();
         $scope.actor.movies = [];
         var temp = actorService.getMoviesByActs($scope.MoviesByActor);
-        for(item in temp){
+        for (item in temp) {
             $scope.actor.movies.push(temp[item].id);
         }
-        for(item in $scope.actor.movies){
-            actorService.addMovieByActor($scope.actor.movies[item],$scope.actor);
+        for (item in $scope.actor.movies) {
+            actorService.addMovieByActor($scope.actor.movies[item], $scope.actor);
         }
         actorService.addActor($rootScope.actors, $scope.actor);
+        $scope.cancel();
         $location.path("/app/actor");
     }
+    $scope.cancel = function () {
+        $uibModalInstance.dismiss('cancel');
+    };
 }]);
 moduleController.controller("deleteActorsController", ["$scope", "$rootScope", "actorService", function ($scope, $rootScope, actorService) {
     if (localStorage.getItem('actors') == undefined) {
@@ -50,14 +54,23 @@ moduleController.controller("deleteActorsController", ["$scope", "$rootScope", "
         $rootScope.actors = JSON.parse(localStorage.getItem('actors'));
     }
 }]);
-moduleController.controller("updateActorsController", ["$scope", "$rootScope", "$stateParams", "actorService", "$state","$location", function ($scope, $rootScope, $stateParams, actorService, $state,$location) {
+moduleController.controller("updateActorsController", ["$scope", "$rootScope", "$stateParams", "actorService", "$state", "$location", function ($scope, $rootScope, $stateParams, actorService, $state, $location) {
     if (localStorage.getItem('actors') == undefined) {
         $rootScope.actors = [];
     } else {
         $rootScope.actors = actorService.getAll();
     }
     $scope.actor = actorService.getActorById($rootScope.actors, $stateParams.actorId);
+    $scope.NoMovs = [];
+    for (item in $scope.actor.movies) {
+        $scope.NoMovs.push(actorService.getMovieById($scope.actor.movies[item]));
+    }
+    $scope.MoviesByActor = actorService.getNoMovies($scope.NoMovs);
     $scope.saveActor = function () {
+        var temp = actorService.getMoviesByActs($scope.MoviesByActor);
+        for (item in temp) {
+            $scope.actor.movies.push(temp[item].id);
+        }
         actorService.updateActor($rootScope.actors, $scope.actor);
         $location.path("/app/actor");
     }
@@ -70,7 +83,7 @@ moduleController.controller("infoActorsController", ["$scope", "$rootScope", "$s
     }
     $scope.actor = actorService.getActorById($rootScope.actors, $stateParams.actorId);
     $scope.movies = [];
-    for(item in $scope.actor.movies){
+    for (item in $scope.actor.movies) {
         $scope.movies.push(actorService.getMovieById($scope.actor.movies[item]));
     }
 }]);
